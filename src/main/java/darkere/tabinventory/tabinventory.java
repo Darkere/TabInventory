@@ -41,6 +41,7 @@ public class tabinventory {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void KeyBoardKeyPressed(GuiScreenEvent.KeyboardKeyPressedEvent event) {
+        if(Minecraft.getInstance().player == null) return;
         if (event.getKeyCode() == GLFW.GLFW_KEY_TAB && Minecraft.getInstance().gameSettings.keyBindInventory.isActiveAndMatches(InputMappings.getInputByCode(event.getKeyCode(), event.getModifiers()))) {
             if (!(event.getGui() instanceof ChatScreen)) {
                 Minecraft.getInstance().player.closeScreen();
